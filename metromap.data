@@ -1,0 +1,287 @@
+%Orange
+Vienna
+Dunn Loring
+West Falls Church
+East Falls Church
+Ballston-MU
+Virginia Square-GMU
+Clarendon
+Court House
+Rosslyn
+Foggy Bottom-GWU
+Farragut West
+McPherson Square
+Metro Center
+Federal Triangle
+Smithsonian
+L'Enfant Plaza
+Federal Center SW
+Capitol South
+Eastern Market
+Potomac Avenue
+Stadium-Armory
+Minnesota Avenue
+Deanwood
+Cheverly
+Landover
+New Carrollton
+&
+%Silver
+Wiehle-Reston East
+Spring Hill
+Greensboro
+Tysons Corner
+McLean
+East Falls Church
+Ballston-MU
+Virginia Square-GMU
+Clarendon
+Court House
+Rosslyn
+Foggy Bottom-GWU
+Farragut West
+McPherson Square
+Metro Center
+Federal Triangle
+Smithsonian
+L'Enfant Plaza
+Federal Center SW
+Capitol South
+Eastern Market
+Potomac Avenue
+Stadium-Armory
+Benning Road
+Capitol Heights
+Addison Road
+Morgan Boulevard
+Largo Town Center
+&
+%Blue
+Franconia-Springfield
+Van Dorn Street
+King Street-Old Town
+Braddock Road
+Ronald Reagan National Airport
+Crystal City
+Pentagon City
+Pentagon
+Arlington Cemetery
+Rosslyn
+Foggy Bottom-GWU
+Farragut West
+McPherson Square
+Metro Center
+Federal Triangle
+Smithsonian
+L'Enfant Plaza
+Federal Center SW
+Capitol South
+Eastern Market
+Potomac Avenue
+Stadium-Armory
+Benning Road
+Capitol Heights
+Addison Road
+Morgan Boulevard
+Largo Town Center
+&
+%Yellow
+Huntington
+Eisenhower Avenue
+King Street-Old Town
+Braddock Road
+Ronald Reagan National Airport
+Crystal City
+Pentagon City
+Pentagon
+L'Enfant Plaza
+Archives
+Gallery Place
+Mount Vernon Square
+Shaw-Howard University
+U Street
+Columbia Heights
+Georgia Avenue-Petworth
+Fort Totten
+&
+%YellowPrime
+Franconia-Springfield
+Van Dorn Street
+King Street-Old Town
+Braddock Road
+Ronald Reagan National Airport
+Crystal City
+Pentagon City
+Pentagon
+L'Enfant Plaza
+Archives
+Gallery Place
+Mount Vernon Square
+Shaw-Howard University
+U Street
+Columbia Heights
+Georgia Avenue-Petworth
+Fort Totten
+West Hyattsville
+Prince George's Plaza
+College Park-University of Maryland
+Greenbelt
+&
+%Green
+Branch Avenue
+Suitland
+Naylor Road
+Southern Avenue
+Congress Heights
+Anacostia
+Navy Yard-Ballpark
+Waterfront
+L'Enfant Plaza
+Archives
+Gallery Place
+Mount Vernon Square
+Shaw-Howard University
+U Street
+Columbia Heights
+Georgia Avenue-Petworth
+Fort Totten
+West Hyattsville
+Prince George's Plaza
+College Park-University of Maryland
+Greenbelt
+&
+%Red
+Shady Grove
+Rockville
+Twinbrook
+White Flint
+Grosvenor-Strathmore
+Medical Center
+Bethesda
+Friendship Heights
+Tenleytown-AU
+Van Ness-UDC
+Cleveland Park
+Woodley Park
+Dupont Circle
+Farragut North
+Metro Center
+Gallery Place
+Judiciary Square
+Union Station
+NoMa-Gallaudet University
+Rhode Island Avenue
+Brookland-CUA
+Fort Totten
+Takoma
+Silver Spring
+Forest Glen
+Wheaton
+Glenmont
+&
+%end
+%transfer
+King Street-Old Town
+Pentagon
+L'Enfant Plaza
+Rosslyn
+East Falls Church
+Metro Center
+Gallery Place
+Stadium-Armory
+Fort Totten
+%end
+%distance
+Wiehle-Reston East|Spring Hill|
+Spring Hill|Greensboro|
+Greensboro|Tysons Corner|
+Tysons Corner|McLean|
+McLean|East Falls Church|
+Vienna|Dunn Loring|
+Dunn Loring|West Falls Church|
+West Falls Church|East Falls Church|
+EastFallsChurch|Ballston-MU|
+Ballston-MU|Virginia Square-GMU|
+Virginia Square-GMU|Clarendon|
+Clarendon|Court House|
+Court House|Rosslyn|
+Rosslyn|Arlington Cemetery|
+Arlington Cemetery|Pentagon|
+Pentagon|Pentagon City|
+Pentagon City|Crystal City|
+Crystal City|Ronald Reagan National Airport|
+Ronald Reagan National Airport|Braddock Road|
+Braddock Road|King Street-Old Town|
+King Street-Old Town|Eisenhower Avenue|
+Eisenhower Avenue|Huntington|
+King Street-Old Town|Van Dorn Street|
+Van Dorn Street|Franconia-Springfield|
+Rosslyn|Foggy Bottom-GWU|
+Foggy Bottom-GWU|Farragut West|
+Farragut West|McPherson Square|
+McPherson Square|Metro Center|
+Metro Center|Federal Triangle|
+Federal Triangle|Smithsonian|
+Smithsonian|L'Enfant Plaza|
+L'Enfant Plaza|Pentagon|
+L'Enfant Plaza|Waterfront|
+Waterfront|Navy Yard-Ballpark|
+Navy Yard-Ballpark|Anacostia|
+Anacostia|Congress Heights|
+Congress Heights|Southern Avenue|
+Southern Avenue|Naylor Road|
+Naylor Road|Suitland|
+Suitland|Branch Avenue|
+L'Enfant Plaza|Federal Center SW|
+Federal Center SW|Capitol South|
+Capitol South|Eastern Market|
+Eastern Market|Potomac Avenue|
+Potomac Avenue|Stadium-Armory|
+Stadium-Armory|Benning Road|
+Benning Road|Capitol Heights|
+Capitol Heights|Addison Road|
+Addison Road|Morgan Boulevard|
+Morgan Boulevard|Largo Town Center|
+Stadium-Armory|Minnesota Avenue|
+Minnesota Avenue|Deanwood|
+Deanwood|Cheverly|
+Cheverly|Landover|
+Landover|New Carrollton|
+L'Enfant Plaza|Archives|
+Archives|Gallery Place|
+Gallery Place|Mount Vernon Square|
+Mount Vernon Square|Shaw-Howard University|
+Shaw-Howard University|U Street|
+U Street|Columbia Heights|
+Columbia Heights|Georgia Avenue-Petworth
+Georgia Avenue-Petworth|Fort Totten|
+Fort Totten|West Hyattsville|
+West Hyattsville|Prince George's Plaza|
+Prince George's Plaza|College Park-University of Maryland|
+College Park-University of Maryland|Greenbelt|
+Fort Totten|Takoma|
+Takoma|Silver Spring|
+Silver Spring|Forest Glen|
+Forest Glen|Wheaton|
+Wheaton|Glenmont|
+Fort Totten|Brookland-CUA|
+Brookland-CUA|Rhode Island Avenue|
+Rhode Island Avenue|NoMa-Gallaudet University|
+NoMa-Gallaudet University|Union Station|
+Union Station|Judiciary Square|
+Judiciary Square|Gallery Place
+Gallery Place|Farragut North|
+Farragut North|Dupont Circle|
+Dupont Circle|Woodley Park|
+Woodley Park|Cleveland Park|
+Cleveland Park|Van Ness-UDC|
+Van Ness-UDC|Tenleytown-AU|
+Tenleytown-AU|Friendship Heights|
+Friendship Heights|Bethesda|
+Bethesda|Medical Center|
+Medical Center|Grosvenor-Strathmore|
+Grosvenor-Strathmore|White Flint|
+White Flint|Twinbrook|
+Twinbrook|Rockville|
+Rockville|Shady Grove|
+%end
