@@ -10,16 +10,15 @@ public class Metro {
 		MetroSystem theMetro = MetroSystem.getInstance();
 	}
 	public static java.util.LinkedList<MetroSystem.Station> goEverywhere(java.util.LinkedList<MetroSystem.Station> visited) {
-		if(visited.size() == )
 		MetroSystem.Station current = visited.peek();
+		return null;
 	}
 
 	private static final class MetroSystem {
-		private Set<Station> stations = new HashSet<Station>();
+		private Map<String, Station> stations = new HashMap<String, Station>();
 		public static final MetroSystem theMetro = new MetroSystem("metromap.data");
 
 		private MetroSystem(String filename) {
-			super();
 			try {
 				Scanner s = new Scanner(new File(filename));
 				String ln = s.nextLine();
@@ -30,30 +29,42 @@ public class Metro {
 					}
 					else if(ln.charAt(0) != '&') {
 						Station st = new Station(ln);
-						if(stations.contains(st))
-							for(Station t : stations)
-								if(t.equals(st)) {
-									st = t;
-									stations.remove(st);
-									break;
-								}
+						if(stations.keySet().contains(ln)) {
+							st = stations.get(ln);
+							stations.remove(ln);
+						}
 
 						st.lines.add(line);
-						stations.add(st);
+						stations.put(ln, st);
 					}
 					ln = s.nextLine();
 				}
 				ln = s.nextLine();
 				while(!ln.equals("%end")) { //this loop handles transfers
 					if(!ln.equals("%transfer")) {
-						for(Station t: stations)
-							if(t.name.equals(ln))
-								t.transfer = true;
+						stations.get(ln).transfer = true;
 					}
 					ln = s.nextLine();
 				}
+				ln = s.nextLine(); ln = s.nextLine();
+				while(!ln.equals("%end")) { //this loop handles the weights (times)
+					String[] sArray = ln.split("~");
+					System.out.println(sArray[0]);
+					System.out.println(sArray[1]);
+					System.out.println(sArray[2]);
+					Station station1 = stations.get(sArray[0]);
+					Station station2 = stations.get(sArray[1]);
+					Integer weight = Integer.parseInt(sArray[2]);
+
+					station1.neighbors.put(station2, weight);
+					station2.neighbors.put(station1, weight);
+
+					ln = s.nextLine();
+					}
+
 			} catch(java.io.FileNotFoundException e) {System.err.println("Fail."); System.exit(-1);}
-			System.out.println(stations);
+			for(Station st: stations.values())
+				System.out.println(st + " " + st.neighbors);
 		}
 
 		public static MetroSystem getInstance() {
