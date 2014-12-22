@@ -53,7 +53,7 @@ public class Metro {
 		int minWeight = Integer.MAX_VALUE;
 		LinkedList<Object> bestPath = null;
 		for(LinkedList<Object> path : possiblePaths) {
-			if(path != null && (int)path.peek() < minWeight)
+			if(path != null && ((Integer)path.peek()).intValue() < minWeight)
 				bestPath = path;
 		}
 		return bestPath;
