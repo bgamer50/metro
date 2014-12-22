@@ -4,7 +4,7 @@ import java.io.File;
 public class Metro {
 	public static final byte transferTime = 5; //5 minutes estimated transfer time when switching lines
 	public static final int maxRecursionDepth = 91 * 3; //maximum depth of recursion
-	public static int bestTime = 600;
+	public static int bestTime = 600; //surely this can be done in less than 10 hours
 	public static void main(String[] args) {
 		MetroSystem theMetro = MetroSystem.getInstance();
 		System.out.println(goEverywhere("Wiehle-Reston East"));
@@ -69,9 +69,9 @@ public class Metro {
 
 		for(MetroSystem.Station n : neighbors.keySet()) {
 			int timesVisited = getTimesVisited(n, visited);
-			if(timesVisited <= 6) { //throws out a neighbor if it has been visited more than 6 times.
+			if( (timesVisited <= 6 && n.transfer) || (timesVisited <= 2) ) { //throws out a transfer that has been visited more than 6 times or a normal station visited more than 2 times.
 				int weight = 0;
-				if(n.equals(prev))
+				if(n.equals(prev) && !s.transfer)
 					weight = Integer.MAX_VALUE / 2;
 				else if(!visited.contains(n))
 					weight -= 10000;
