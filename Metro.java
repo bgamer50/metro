@@ -3,8 +3,8 @@ import java.util.*;
 import java.io.File;
 public class Metro {
 	public static final byte transferTime = 5; //5 minutes estimated transfer time when switching lines
-	public static final int maxRecursionDepth = 91 * 5; //maximum depth of recursion
-	public static int bestTime = Integer.MAX_VALUE - 1;
+	public static final int maxRecursionDepth = 91 * 3; //maximum depth of recursion
+	public static int bestTime = 600;
 	public static void main(String[] args) {
 		MetroSystem theMetro = MetroSystem.getInstance();
 		System.out.println(goEverywhere("Wiehle-Reston East"));
@@ -69,15 +69,15 @@ public class Metro {
 
 		for(MetroSystem.Station n : neighbors.keySet()) {
 			int timesVisited = getTimesVisited(n, visited);
-			if(timesVisited <= 10) { //throws out a neighbor if it has been visited more than 10 times.
+			if(timesVisited <= 6) { //throws out a neighbor if it has been visited more than 6 times.
 				int weight = 0;
 				if(n.equals(prev))
-					weight += 3000;
+					weight = Integer.MAX_VALUE / 2;
 				else if(!visited.contains(n))
 					weight -= 10000;
 				if(n.transfer)
 					weight -= 500;
-				weight += 100 * timesVisited;
+				weight += 1000 * timesVisited;
 				weightedNeighbors.put(n, weight);
 			}
 		}
