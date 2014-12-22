@@ -61,7 +61,7 @@ public class Metro {
 
 	public static final MetroSystem.Station[] rankNeighbors(MetroSystem.Station s, LinkedList<MetroSystem.Station> visited) { //ranks neighbors, inefficient but ok since stations have few neighbors
 		Map<MetroSystem.Station, Integer> neighbors = s.neighbors;
-		Map<MetroSystem.Station, Integer> weightedNeighbors = new HashMap<MetroSystem.Station, Integer>();
+		Map<MetroSystem.Station, Double> weightedNeighbors = new HashMap<MetroSystem.Station, Double>();
 		MetroSystem.Station prev;
 		try {
 		prev = visited.get(1);
@@ -70,25 +70,32 @@ public class Metro {
 		for(MetroSystem.Station n : neighbors.keySet()) {
 			int timesVisited = getTimesVisited(n, visited);
 			if( (timesVisited <= 6 && n.transfer) || (timesVisited <= 2) ) { //throws out a transfer that has been visited more than 6 times or a normal station visited more than 2 times.
-				int weight = 0;
+				/*int weight = 0;
 				if(n.equals(prev) && !s.transfer)
 					weight = Integer.MAX_VALUE / 2;
 				else if(!visited.contains(n))
 					weight -= 10000;
 				if(n.transfer)
 					weight -= 500;
-				weight += 1000 * timesVisited;
+				weight += 1000 * timesVisited;*/
+
+				//double weight = 1.0 * neighbors.get(n) * (0.5 * bestTime - visited.size());
+				double weight = Math.exp(1.0 * visited.size() *  1.0 * timesVisited / bestTime - 1.0 * Boolean.compare(n.transfer, false) + 2.0 * Boolean.compare(n.equals(prev), false));
+
 				weightedNeighbors.put(n, weight);
 			}
 		}
 		MetroSystem.Station[] neighborArray = new MetroSystem.Station[weightedNeighbors.keySet().size()];
+		//System.out.print("Neighbors of " + s + ": ");
 		for(int k = 0; k < neighborArray.length; k++) {
 			MetroSystem.Station next = min(weightedNeighbors);
+			//System.out.print(next + " " + weightedNeighbors.get(next) + " ");
 			weightedNeighbors.remove(next);
 			neighborArray[k] = next;
 		}
-		/*
-		if(neighborArray.length > 0) {
+		//System.out.println("\n");
+		
+		/*if(neighborArray.length > 0) {
 			System.out.print("Neighbors of " + s + " | ");
 			for(MetroSystem.Station n : neighborArray)
 				System.out.print(n + " ");
@@ -97,8 +104,8 @@ public class Metro {
 		return neighborArray;
 	}
 
-	public static final MetroSystem.Station min(Map<MetroSystem.Station, Integer> m) {
-		int minWeight = Integer.MAX_VALUE;
+	public static final MetroSystem.Station min(Map<MetroSystem.Station, Double> m) {
+		double minWeight = Double.MAX_VALUE;
 		MetroSystem.Station minNeighbor = null;
 		for(MetroSystem.Station s : m.keySet())
 			if(m.get(s) < minWeight) {
