@@ -1,0 +1,1 @@
+This is a program designed to find the fastest way to visit all the DC metro stations, beginning at a given starting point.  It is currently a simple search program, but in time more features will be added as the core functionality is improved.
