@@ -1,13 +1,13 @@
 //This is an experiment to find the fastest way to visit all the DC metro stations.
 import java.util.*;
 import java.io.File;
-public class Metro {
+public class Metro implements Runnable {
 	public static final byte transferTime = 5; //5 minutes estimated transfer time when switching lines
 	public static final int maxRecursionDepth = 91 * 3; //maximum depth of recursion
 	public static int bestTime = 600; //surely this can be done in less than 10 hours
 	public static void main(String[] args) {
 		MetroSystem theMetro = MetroSystem.getInstance();
-		System.out.println(goEverywhere("Wiehle-Reston East"));
+		System.out.println(goEverywhere("Shady Grove"));
 	}
 
 	public static LinkedList<Object> goEverywhere(String start)  {
@@ -17,21 +17,29 @@ public class Metro {
 	}
 
 	public static LinkedList<Object> goEverywhere(LinkedList<MetroSystem.Station> visited, MetroSystem.Line currentLine, int weight) {
+		MetroSystem.Station currentStation = visited.peek();
+
 		if(visited.size() >= maxRecursionDepth || weight > bestTime) { //when it is at max recursion depth or taking more than the best so far it quits
 			//System.out.println("Max Recursion Depth Reached.");
+			System.out.println("Failure!");
+			for(int k = visited.size() - 1; k >= 0; k--)
+				System.out.print(visited.get(k).name + " ");
+			System.out.println((weight / 60) + " hours, " + (weight - weight / 60 * 60) + " minutes\n");
 			return null;	
 		}
+		if(currentStation.neighbors.keySet().size() == 1 && getTimesVisited(currentStation, visited) > 1) //if an endpoint has been visited more than once, then quit because that is obviously bad
+			return null;
 		else if(visited.containsAll(MetroSystem.getInstance().stations.values())) { //the base case, if it has visited all the stations
 			System.out.println("Success!");
 			for(int k = visited.size() - 1; k >= 0; k--)
 				System.out.print(visited.get(k).name + " ");
-			System.out.println(weight + "\n");
+			System.out.println((weight / 60) + " hours, " + (weight - weight / 60 * 60) + " minutes\n");
 			LinkedList<Object> tempList = new LinkedList<Object>(visited);
 			tempList.push(weight);
 			bestTime = weight;
 			return tempList;
 		}
-		MetroSystem.Station currentStation = visited.peek();	
+
 		ArrayList<LinkedList<Object>> possiblePaths = new ArrayList<LinkedList<Object>>();
 		MetroSystem.Station[] rankedNeighbors = rankNeighbors(currentStation, visited);
 
@@ -69,7 +77,9 @@ public class Metro {
 
 		for(MetroSystem.Station n : neighbors.keySet()) {
 			int timesVisited = getTimesVisited(n, visited);
-			if( (timesVisited <= 6 && n.transfer) || (timesVisited <= 2) ) { //throws out a transfer that has been visited more than 6 times or a normal station visited more than 2 times.
+			if( ((timesVisited <= 6 && n.transfer) || (timesVisited <= 2)) && (!n.equals(prev) || neighbors.keySet().size() == 1) ) { //throws out a transfer that has been visited more than 6 times or a normal station visited more than 2 times.
+				//The preceding line also throws out a station it just visited unless it is at an endpoint, which might throw out a viable solution but saves a lot of time.
+
 				/*int weight = 0;
 				if(n.equals(prev) && !s.transfer)
 					weight = Integer.MAX_VALUE / 2;
