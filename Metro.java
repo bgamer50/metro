@@ -125,7 +125,7 @@ public class Metro {
 		return minNeighbor;
 	}
 
-	public static final int getTimesVisited(MetroSystem.Station s, LinkedList<MetroSystem.Station> visited) {
+	public static final int getTimesVisited(MetroSystem.Station s, LinkedList<MetroSystem.Station> visited) { //inefficient but better than copying a HashTable
 		int count = 0;
 		for(MetroSystem.Station v : visited)
 			if(v.equals(s))
