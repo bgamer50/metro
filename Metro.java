@@ -7,6 +7,7 @@ public class Metro {
 	public static int bestTime = 600; //surely this can be done in less than 10 hours
 	public static void main(String[] args) {
 		MetroSystem theMetro = MetroSystem.getInstance();
+		System.out.println("Enter a starting station:");
 		System.out.println(goEverywhere(new Scanner(System.in).nextLine()));
 	}
 
